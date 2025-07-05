@@ -32,14 +32,14 @@ GET http://localhost:3000/contacts/507f1f77bcf86cd799439011
 ### Replace _APP_NAME with  actual Render app name
 
 ### Test Hello World on Render
-GET https://YOUR_APP_NAME.onrender.com/
+GET https://cse341-project1-ga5p.onrender.com/
 
 ###
 
 ### Test GetAll on Render
-GET https://YOUR_APP_NAME.onrender.com/contacts
+GET https://cse341-project1-ga5p.onrender.com/contacts
 
 ###
 
 ### Test Get specific contact on Render
-GET https://YOUR_APP_NAME.onrender.com/contacts/6869312f91b9b2ec561655cb
+GET https://cse341-project1-ga5p.onrender.com/contacts/6869312f91b9b2ec561655cb
