@@ -1,0 +1,45 @@
+###
+# CSE341 Project 1 - Contacts API Testing
+###
+
+### Step 2: Test Hello World endpoint
+GET http://localhost:3000/
+
+###
+
+### Step 5: Test GetAll - Get all contacts
+GET http://localhost:3000/contacts
+
+###
+
+### Step 5: Test Get - Get specific contact by ID
+### IMPORTANT: Replace with a real ID from MongoDB database
+GET http://localhost:3000/contacts/6869312f91b9b2ec561655cb
+
+###
+
+### Test with invalid ID (should return 400 error)
+GET http://localhost:3000/contacts/6869312f91b9b2ec561655cb
+
+###
+
+### Test with non-existent ID (should return 404 error)  
+GET http://localhost:3000/contacts/507f1f77bcf86cd799439011
+
+###
+
+### ===== RENDER DEPLOYMENT TESTING =====
+### Replace _APP_NAME with  actual Render app name
+
+### Test Hello World on Render
+GET https://YOUR_APP_NAME.onrender.com/
+
+###
+
+### Test GetAll on Render
+GET https://YOUR_APP_NAME.onrender.com/contacts
+
+###
+
+### Test Get specific contact on Render
+GET https://YOUR_APP_NAME.onrender.com/contacts/6869312f91b9b2ec561655cb
