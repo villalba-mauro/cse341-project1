@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 });
 
 // Step 4: Usar las rutas de contacts (archivo separado)
-app.use('/', require('./routes/contacts'));
+app.use('/', require('./contacts'));
 
 // Función para iniciar el servidor
 async function startServer() {
