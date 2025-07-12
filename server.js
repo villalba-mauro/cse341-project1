@@ -30,8 +30,12 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.BASE_URL || `http://localhost:${port}`,
-        description: 'Servidor de desarrollo',
+        url: 'https://cse341-project1-ga5p.onrender.com',  // ← Render (principal)
+        description: 'Servidor de producción (Render)',
+      },
+      {
+        url: 'http://localhost:3000',                      // ← Local (backup)
+        description: 'Servidor de desarrollo (Local)',
       },
     ],
   },
