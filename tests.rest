@@ -1,0 +1,66 @@
+### Variables
+# Cambiar localhost por tu URL de Render cuando publiques
+@baseUrl = http://localhost:3000
+# @baseUrl = https://tu-app.onrender.com
+
+### Test 1: Hello World
+GET {{baseUrl}}/
+
+### Test 2: Obtener todos los contactos
+GET {{baseUrl}}/contacts
+
+### Test 3: Obtener contacto por ID (cambiar por un ID real)
+GET {{baseUrl}}/contacts/XXXXXXXXXXXXXXXXXXXXXXXX
+
+### Test 4: Crear nuevo contacto
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Juan",
+  "lastName": "Pérez",
+  "email": "juan.perez@email.com",
+  "favoriteColor": "azul",
+  "birthday": "1990-05-15"
+}
+
+### Test 5: Crear otro contacto
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "María",
+  "lastName": "García",
+  "email": "maria.garcia@email.com",
+  "favoriteColor": "rojo",
+  "birthday": "1985-12-03"
+}
+
+### Test 6: Actualizar contacto (cambiar por un ID real)
+PUT {{baseUrl}}/contacts/XXXXXXXXXXXXXXXXXXXXXXXX
+Content-Type: application/json
+
+{
+  "firstName": "Juan Carlos",
+  "lastName": "Pérez López",
+  "email": "juancarlos.perez@email.com",
+  "favoriteColor": "verde",
+  "birthday": "1990-05-15"
+}
+
+### Test 7: Eliminar contacto (cambiar por un ID real)
+DELETE {{baseUrl}}/contacts/6869315c91b9b2ec561655cf
+
+### Test 8: Intentar obtener contacto eliminado
+GET {{baseUrl}}/contacts/6869315c91b9b2ec561655cf
+
+### Test 9: Error - Crear contacto sin campos requeridos
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Incompleto"
+}
+
+### Test 10: Error - ID inválido
+GET {{baseUrl}}/contacts/id-invalido

@@ -23,7 +23,9 @@
     "cors": "^2.8.5",
     "dotenv": "^17.0.1",
     "express": "^5.1.0",
-    "mongodb": "^6.17.0"
+    "mongodb": "^6.17.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.0.10",

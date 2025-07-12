@@ -1,6 +1,8 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 
 const app = express();
@@ -12,6 +14,39 @@ app.use(express.json());
 
 // Variable global para la base de datos
 let db;
+
+// Configuración de Swagger
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Contacts API',
+      version: '1.0.0',
+      description: 'API para gestionar contactos - CSE341 Project',
+      contact: {
+        name: 'API Support',
+        email: 'support@contactsapi.com',
+      },
+    },
+    servers: [
+      {
+        url: process.env.BASE_URL || `http://localhost:${port}`,
+        description: 'Servidor de desarrollo',
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], // Archivos donde están las rutas con documentación
+};
+
+// Generar especificación de Swagger
+const specs = swaggerJsdoc(swaggerOptions);
+
+// Ruta para la documentación de Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'Contacts API Documentation',
+}));
 
 // Función para conectar a MongoDB
 async function connectToDatabase() {
@@ -48,12 +83,12 @@ async function connectToDatabase() {
   }
 }
 
-// Step 2: Ruta Hello World (como requiere la tarea)
+//Ruta Hello World 
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-// Step 4: Usar las rutas de contacts (archivo separado)
+// Usar las rutas de contacts (archivo separado)
 app.use('/', require('./routes/contacts'));
 
 // Función para iniciar el servidor
@@ -69,6 +104,9 @@ async function startServer() {
     console.log(`   GET /              - Hello World`);
     console.log(`   GET /contacts      - Get all contacts`);
     console.log(`   GET /contacts/:id  - Get contact by ID`);
+    console.log(`   POST /contacts     - Create new contact`);
+    console.log(`   PUT /contacts/:id  - Update contact`);
+    console.log(`   DELETE /contacts/:id - Delete contact`);
   });
 }
 
